@@ -140,14 +140,14 @@ class Game {
                 name: "Break_quantum",
                 description: "Get 10^^^2^1024 points",
                 unlocked: false,
-                can: Game.points.gte(new MetaNum(10).arrow(3)(new MetaNum(10).pow(1024)))       
+                can: Game.points.gte(new MetaNum(10).arrow(3)(big))
             },
             19: {
                 id: 19,
                 name: "Break_reality",
                 description: "Get 10^^^^2^1024 points",
                 unlocked: false,
-                can: Game.points.gte(new MetaNum(10).arrow(4)(new MetaNum(10).pow(1024)))
+                can: Game.points.gte(new MetaNum(10).arrow(4)(big))
             },
             20: {
                 id: 20,
@@ -168,7 +168,7 @@ class Game {
                 name: "OmegaNum",
                 description: "Get 10{2^1024}10 points",
                 unlocked: false,
-                can: Game.points.gte(new MetaNum(10).arrow(new MetaNum(2).pow(1024))(10))      
+                can: Game.points.gte(new MetaNum(10).arrow(big)(10))      
             },
             23: {
                 id: 23,
@@ -182,7 +182,35 @@ class Game {
                 name: "ExpantaNum",
                 description: "Get {10, 2^1024, 1, 2} points",
                 unlocked: false,
-                can: Game.points.gte(new MetaNum(2)      
+                can: Game.points.gte(new MetaNum(10).BEAF(big)(2)(2))
+            },
+            25: {
+                id: 25,
+                name: "MultiExpantaNum",
+                description: "Get {10, 2^1024, 2, 2} points",
+                unlocked: false,
+                can: Game.points.gte(new MetaNum(10).BEAF(big)(3)(2))
+            },
+            26: {
+                id: 26,
+                name: "ExplodaNum",
+                description: "Get {10, 2^1024, 1, 3} points",
+                unlocked: false,
+                can: Game.points.gte(new MetaNum(10).BEAF(big)(2)(3))
+            },
+            27: {
+                id: 27,
+                name: "MegotaNum",
+                description: "Get {10, 2^1024, 1, 1, 2} points",
+                unlocked: false,
+                can: Game.points.gte(new MetaNum(10).BEAF(big)(2)(1)(2))
+            },
+            28: {
+                id: 28,
+                name: "PowiainaNum",
+                description: "Get {10, 2^1024, 1, 1, 1, 2} points",
+                unlocked: false,
+                can: Game.points.gte(new MetaNum(10).BEAF(big)(2)(1)(1)(2))
             },
             }
         }
