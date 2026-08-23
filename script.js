@@ -2,7 +2,8 @@ let big = MetaNum.pow(2, 1024);
 class Game {
     constructor() {
         this.points = new MetaNum(1);
-        this.multiplier = new MetaNum(1);
+        this.currency = new MetaNum(1);
+        this.multiplier = new MetaNum(10);
         this.dimensions = [[[new MetaNum(1), new MetaNum(1), new MetaNum(0)]]];
         this.layers = [new MetaNum(1)];
         this.upgrades = {};
@@ -246,6 +247,22 @@ class Game {
                 description: "Get {10, 2^1024 (1) 2} points",
                 unlocked: false,
                 can: Game.points.gte(new MetaNum(10).iterate(big)),
+                secret: false
+            },
+            30: {
+                id: 30,
+                name: "Speeed",
+                description: "Layer Up",
+                unlocked: false,
+                can: Game.layers[0].gt(1),
+                secret: false
+            },
+            31: {
+                id: 31,
+                name: "Meta",
+                description: "Tier Up",
+                unlocked: false,
+                can: Game.layers.length > 1,
                 secret: false
             },
             }
