@@ -240,6 +240,14 @@ class Game {
                 can: Game.points.gte(new MetaNum(10).BEAF(big)(2)(1)(1)(2)),
                 secret: false
             },
+            29: {
+                id: 29,
+                name: "GodgahNum",
+                description: "Get {10, 2^1024 (1) 2} points",
+                unlocked: false,
+                can: Game.points.gte(new MetaNum(10).iterate(big)),
+                secret: false
+            },
             }
         }
     };
