@@ -8,6 +8,7 @@ class Game {
         this.layers = [new MetaNum(1)];
         this.upgrades = {};
         this.challenges = {};
+        this.achievements = [];
         this.initializeUpgrades();
         this.initializeChallenges();
         this.initializeAchievements();
@@ -42,3 +43,17 @@ class Game {
             secret: false
           }
         ];
+    }
+    }
+}
+var j = 0;
+function checkAchievements() {
+    for(j = 0; j < Game.achievements.length; j++) {
+        if(Game.achievements[j].check && !Game.achievements[j].unlocked) {
+            if(Game.achievements[j].secret) {
+                
+            }
+        }
+    }
+}
+// `🏆 Achievement Unlocked: ${achievement.title}!`
