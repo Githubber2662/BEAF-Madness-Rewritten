@@ -7,14 +7,14 @@ let FORMAT_DEBUG = 0
 
 // ─── Configuration Options ────────────────────────────────────────
 const FORMAT_OPTIONS = {
-  smallNotationUseE: true,   // 1. 小数值是否用E-表示（true=αE-β，false=⁻¹）
+  smallNotationUseE: false,   // 1. 小数值是否用E-表示（true=αE-β，false=⁻¹）
   smallNotationThreshold: 4, // 2. 小数值表示阈值（=n则小于10^-n的数采用小数值处理）
-  decimalPlaces: 3,          // 3. 常规数字小数位数（=0为1，=1为1.0，=2为1.00等）
-  decimalThreshold: 3,       // 4. 常规数字小数阈值（=n则数值>=10^n时不显示小数部分）
-  useCommas: true,           // 5. 常规数字是否显示逗号（true/false）
+  decimalPlaces: 8,          // 3. 常规数字小数位数（=0为1，=1为1.0，=2为1.00等）
+  decimalThreshold: 8,       // 4. 常规数字小数阈值（=n则数值>=10^n时不显示小数部分）
+  useCommas: false,           // 5. 常规数字是否显示逗号（true/false）
   sciThreshold: 9,           // 6. 科学计数法阈值（=n则数值>=10^n开始用科学计数法，同样对αEβ中β的数值生效）
-  sciSignificantDigits: 3,   // 7. 科学计数法有效位数（=n则αEβ的α的小数部分保留n位）
-  sciDecimalThreshold: 3,    // 8. 科学计数法小数阈值（=n则αEβ的β>=10^n时不显示小数部分）
+  sciSignificantDigits: 9,   // 7. 科学计数法有效位数（=n则αEβ的α的小数部分保留n位）
+  sciDecimalThreshold: 8,    // 8. 科学计数法小数阈值（=n则αEβ的β>=10^n时不显示小数部分）
   singleLetterDigits: 3,     // 9. 单字母计数法有效位数（αFβ,αGβ...αZβ中α的小数位数）
   repeatLetterThreshold: 3,  // 10. 单字母重复阈值（=n则出现n个重复的单字母时用下一个字母计数法，n<2时以2计算）
   multiLetterDigits: 3,      // 11. 多字母计数法有效位数（及以上的α的小数位数）
