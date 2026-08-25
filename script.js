@@ -54,11 +54,18 @@ function showAchievement(title, description, secret=false) {
   card.className = 'achievement-card';
 
   // 2. Populate structure with safe text insertion
+if(secret) {
   card.innerHTML = `
-    <h4 class="achievement-title">${title}</h4>
+    <h4 class="achievement-title">🏆 Secret Achievement Gotten: ${title}</h4>
     <p class="achievement-desc">${description}</p>
   `;
-
+}
+else {
+    card.innerHTML = `
+    <h4 class="achievement-title">🏆 Achievement Gotten: ${title}</h4>
+    <p class="achievement-desc">${description}</p>
+  `
+}
   // 3. Inject it into the screen container
   container.appendChild(card);
 
