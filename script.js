@@ -52,41 +52,47 @@ let Game {
     }
     }
 }
-function showAchievement(title, description, secret=false) {
+function showAchivement(title, description, secret) {
   const container = document.getElementById('achievement-container');
 
-  // 1. Create the card element
-  const card = document.createElement('div');
-  card.className = 'achievement-card';
+  // 1. Create the pop-up element
+  const toast = document.createElement('div');
+  toast.className = 'achievement-toast';
 
-  // 2. Populate structure with safe text insertion
-if(secret) {
-  card.innerHTML = `
-    <h4 class="achievement-title">🏆 Secret Achievement Gotten: ${title}</h4>
-    <p class="achievement-desc">${description}</p>
+  // 2. Insert internal HTML structures
+  toast.innerHTML = `
+    <div class="achievement-icon">🏆</div>
+    <div class="achievement-text">
+      <span class="achievement-banner">Achievement Gotten!</span>
+      <span class="achievement-title">${title}</span>
+    </div>
   `;
-}
-else {
-    card.innerHTML = `
-    <h4 class="achievement-title">🏆 Achievement Gotten: ${title}</h4>
-    <p class="achievement-desc">${description}</p>
-  `
-}
-  // 3. Inject it into the screen container
-  container.appendChild(card);
 
-  // 4. Set a timer to start the fade-out animation (e.g., after 4 seconds)
+  // 3. Append to screen container
+  container.appendChild(toast);
+
+  // 4. Play an achievement chime sound
+  // Replace URL with your own local .mp3 if needed
+  const audio = new Audio('https://mixkit.co');
+  audio.volume = 0.5;
+  audio.play().catch(err => console.log("Audio playback blocked until user interacts with the page."));
+
+  // 5. Trigger slide-in animation via a tiny timeout
   setTimeout(() => {
-    card.classList.add('fade-out');
+    toast.classList.add('show');
+  }, 50);
+
+  // 6. Slide out after 4 seconds
+  setTimeout(() => {
+    toast.classList.remove('show');
     
-    // 5. Physically remove the node from the DOM once fade-out completes (0.5s duration)
-    card.addEventListener('animationend', (e) => {
-      if (e.animationName === 'fadeOut') {
-        card.remove();
-      }
-    });
+    // 7. Completely remove element from DOM once slide-out ends
+    setTimeout(() => {
+      toast.remove();
+    }, 400);
   }, 4000);
 }
+
 
 var j = 0;
 function checkAchievements() {
