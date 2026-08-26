@@ -1,20 +1,23 @@
 let big = MetaNum.pow(2, 1024);
-class Game {
+let last = performance.now();
+let deltatime;
+let tickspeed;
+let Game {
     constructor() {
         this.points = new MetaNum(1);
         this.currency = new MetaNum(1);
         this.multiplier = new MetaNum(10);
         this.dimensions = [[[new MetaNum(1), new MetaNum(1), new MetaNum(0)]]];
         this.layers = [new MetaNum(1)];
-        this.upgrades = {};
-        this.challenges = {};
+        this.upgrades = [];
+        this.challenges = [];
         this.achievements = [];
         this.initializeUpgrades();
         this.initializeChallenges();
         this.initializeAchievements();
     initializeUpgrades() {
-        this.upgrades = {
-        };
+        this.upgrades = [
+        ];
     };
     initializeAchievements() {
   this.achievements = [
@@ -87,14 +90,17 @@ function checkAchievements() {
     for(j = 0; j < Game.achievements.length; j++) {
         if(Game.achievements[j].check && !Game.achievements[j].unlocked) {
             Game.achievements[j].unlocked = true;
-            if(Game.achievements[j].secret) {
-               
-            }
-            else {
-
-            }
-
+            showAchievement(Game.achievements[j].title, Game.achievements[j].description, Game.achievements[j].secret);
         }
     }
 }
-// `🏆 Achievement Unlocked: ${achievement.title}!`
+function gameLoop() {
+    deltatime = performance.now() - last;
+    if(Game.layers.length <= 1) {
+        for(j = dimensions.length - 1; j >= 0; j--) {
+            if(j > 0) {
+            Game.dimensions[j-1] = Game.dimensions[j].arrow(
+            }
+        }
+    }
+}
