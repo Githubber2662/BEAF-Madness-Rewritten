@@ -1,2 +1,1 @@
-# Super-Replicanti-Incremental
-Successor to Replicanti Incremental by MrRedShark77
+# BEAF Madness Rewritten
