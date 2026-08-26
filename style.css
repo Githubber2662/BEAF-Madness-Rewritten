@@ -1,0 +1,62 @@
+/* Container positioned at the bottom-right */
+#achievement-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 9999;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Base styling for the pop-up */
+.achievement-toast {
+  display: flex;
+  align-items: center;
+  background: rgba(20, 20, 20, 0.95);
+  border: 2px solid #ffd700; /* Gold border */
+  border-radius: 8px;
+  padding: 12px 20px;
+  color: #fff;
+  min-width: 280px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  
+  /* Slide-in animation */
+  transform: translateX(120%);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Class added by JS to show the pop-up */
+.achievement-toast.show {
+  transform: translateX(0);
+}
+
+/* Badge icon styling */
+.achievement-icon {
+  font-size: 24px;
+  margin-right: 15px;
+  background: linear-gradient(135deg, #ffd700, #ffa500);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Text layout */
+.achievement-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.achievement-banner {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #ffd700;
+  font-weight: bold;
+}
+
+.achievement-title {
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: 2px;
+}
