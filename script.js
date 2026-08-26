@@ -1,7 +1,8 @@
 let big = MetaNum.pow(2, 1024);
 let last = performance.now();
 let deltatime;
-let tickspeed;
+let tickspeed = new MetaNum(1);
+let fghDisplay = "";
 let Game {
     constructor() {
         this.points = new MetaNum(1);
@@ -9,6 +10,8 @@ let Game {
         this.multiplier = new MetaNum(10);
         this.dimensions = [[[new MetaNum(1), new MetaNum(1), new MetaNum(0)]]];
         this.layers = [new MetaNum(1)];
+        this.hyperLevel = new MetaNum(2);
+        this.omegatower = 0;
         this.upgrades = [];
         this.challenges = [];
         this.achievements = [];
@@ -94,13 +97,33 @@ function checkAchievements() {
         }
     }
 }
+function increaseRank(level, amount) {
+    for(j = 0; j < Math.min(Game.layers.length, level); j++) {
+        Game.layers[j] = new MetaNum(0);
+    }
+    if(level > Game.layers.length) {
+        Game.layers.push(new MetaNum(amount));
+    }
+    else {
+        Game.layers[level-1] = Game.layers[level-1].add(amount);
+    }
+}
 function gameLoop() {
     deltatime = performance.now() - last;
     if(Game.layers.length <= 1) {
         for(j = dimensions.length - 1; j >= 0; j--) {
             if(j > 0) {
-            Game.dimensions[j-1] = Game.dimensions[j].arrow(
+                Game.dimensions[j-1] = Game.dimensions[j-1].arrow(Game.layers[0])(Game.dimensions[j].arrow(Game.layers[0])(tickspeed.mul(deltatime)));
             }
+            else {
+                multiplier = multiplier.arrow(Game.layers[0])(Game.dimensions[0].arrow(Game.layers[0])(tickspeed.mul(deltatime)));
+            }       
+        currency = currency.mul(multiplier);
+        if() {
+            
         }
+    }
+    else {
+           
     }
 }
