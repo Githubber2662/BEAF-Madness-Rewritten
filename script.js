@@ -145,11 +145,20 @@ function gameLoop() {
                 Game.dimensions[j-1] = Game.dimensions[j-1].arrow(Game.layers[0])(Game.dimensions[j].arrow(Game.layers[0])(tickspeed.mul(deltatime)));
             }
             else {
-                multiplier = multiplier.arrow(Game.layers[0])(Game.dimensions[0].arrow(Game.layers[0])(tickspeed.mul(deltatime)));
+                Game.multiplier = Game.multiplier.arrow(Game.layers[0])(Game.dimensions[0].arrow(Game.layers[0])(tickspeed.mul(deltatime)));
             }       
-        currency = currency.mul(multiplier);
-        if() {
+        Game.currency = Game.currency.mul(multiplier);
+        if() 
+
+
             
+
+
+
+
+
+    
+
         }
     }
     else {
