@@ -10,10 +10,8 @@ let Game {
         this.multiplier = new MetaNum(10);
         this.dimensions = [[[new MetaNum(1), new MetaNum(1), new MetaNum(0)]]];
         this.layers = [new MetaNum(1)];
-        this.hyperLevel = new MetaNum(2);
         this.omegatower = 0;
         this.upgrades = [];
-        this.challenges = [];
         this.achievements = [];
         this.initializeUpgrades();
         this.initializeChallenges();
@@ -47,7 +45,32 @@ let Game {
             unlocked: false,
             check: Game.points.gte(1e10),
             secret: false
-          }
+          },
+        {
+            id: "3",
+            title: "Googol",
+            description: "Get 1e100 points",
+            unlocked: false,
+            check: Game.points.gte("E100"),
+            secret: false
+          },
+           {
+            id: "4",
+            title: "Trialogue",
+            description: "Get ee10 points",
+            unlocked: false,
+            check: Game.points.gte("EE10"),
+            secret: false
+          },
+        {
+            id: "5",
+            title: "Googolplex",
+            description: "Get e1e100 points",
+            unlocked: false,
+            check: Game.points.gte("EE100"),
+            secret: false
+          },
+
         ];
     }
     }
