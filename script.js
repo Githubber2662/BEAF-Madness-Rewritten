@@ -18,6 +18,10 @@ let Game {
         this.initializeAchievements();
     initializeUpgrades() {
         this.upgrades = [
+            {
+                id: "fast-game",
+                description: "Make the game faster"
+            }
         ];
     };
     initializeAchievements() {
@@ -139,7 +143,7 @@ function increaseRank(level, amount) {
 }
 function gameLoop() {
     deltatime = performance.now() - last;
-    if(Game.layers.length <= 1) {
+    if(Game.layers.length <= 1 || ) {
         for(j = dimensions.length - 1; j >= 0; j--) {
             if(j > 0) {
                 Game.dimensions[j-1] = Game.dimensions[j-1].arrow(Game.layers[0])(Game.dimensions[j].arrow(Game.layers[0])(tickspeed.mul(deltatime)));
