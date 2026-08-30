@@ -1,6 +1,7 @@
 let big = MetaNum.pow(2, 1024);
 let last = performance.now();
 let deltatime;
+const isMetaZero = (currentValue) => currentValue.eq(0);
 let tickspeed = new MetaNum(1);
 let fghDisplay = "";
 let Game {
@@ -135,7 +136,9 @@ function increaseRank(level, amount) {
         Game.layers[j] = new MetaNum(0);
     }
     if(level > Game.layers.length) {
-        Game.layers.push(new MetaNum(amount));
+        while(Game.layers.length < level) {
+            Game.layers.push(new MetaNum(amount));
+        }
     }
     else {
         Game.layers[level-1] = Game.layers[level-1].add(amount);
@@ -143,17 +146,21 @@ function increaseRank(level, amount) {
 }
 function gameLoop() {
     deltatime = performance.now() - last;
-    if(Game.layers.length <= 1 || ) {
+    if(Game.layers.length <= 1 || Game.layers.slice(1).every(isMetaZero)) {
         for(j = dimensions.length - 1; j >= 0; j--) {
             if(j > 0) {
                 Game.dimensions[j-1] = Game.dimensions[j-1].arrow(Game.layers[0])(Game.dimensions[j].arrow(Game.layers[0])(tickspeed.mul(deltatime)));
             }
             else {
                 Game.multiplier = Game.multiplier.arrow(Game.layers[0])(Game.dimensions[0].arrow(Game.layers[0])(tickspeed.mul(deltatime)));
-            }       
+            }
+        }
         Game.currency = Game.currency.mul(multiplier);
-        if() 
-
+        if(Game.currency.gte(new MetaNum(10).arrow(Game.layers[0].add(1))(10))){
+            increaseRank(1, 1);
+        }
+        }
+}
 
             
 
